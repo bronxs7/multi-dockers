@@ -14,7 +14,7 @@ after_success:
   - docker build -t bronxs/multi-nginx ./nginx
   - docker build -t bronxs/multi-server ./server
   - docker build -t bronxs/multi-worker ./worker
-  #Log in to docker CLI credential
+  #Log in to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Take those images and push them to docker hub
   - docker push bronxs/multi-client
