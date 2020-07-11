@@ -1,4 +1,4 @@
 module.exports = {
-  redisHost: process.env.REDISHOST,
-  redisPort: process.env.REDISPORT
+  redisHost: process.env.REDIS_HOST,
+  redisPort: process.env.REDIS_PORT
 };
