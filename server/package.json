@@ -9,6 +9,6 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "start": "node --unhandled-rejections=strict index.js"
+    "start": "node index.js"
   }
 }

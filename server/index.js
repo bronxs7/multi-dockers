@@ -8,6 +8,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //Postgres Client Setup
 const { Pool } = require('pg');
@@ -55,10 +56,11 @@ app.get('/values/current', async (req, res) => {
 app.post('/values', async (req, res) => {
   const index = req.body.index;
 
-  if (parseInt(index) > 41) {
+  if (parseInt(index) > 40) {
     return res.status(422).send('Index too high');
   }
 
+  console.log(index);
   redisClient.hset('values', index, 'Nothing yet!');
   redisPublisher.publish('insert', index);
   pgClient.query('INSERT INTO values(number) VALUES($1)', [index]);
