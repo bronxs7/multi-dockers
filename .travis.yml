@@ -23,6 +23,7 @@ after_success:
   - docker push bronxs/multi-worker
 
 deploy:
+  edge: true
   provider: elasticbeanstalk
   region: us-west-2
   app: multi-docker
